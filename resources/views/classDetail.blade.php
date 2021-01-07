@@ -44,20 +44,36 @@
                 <div class="container mt-3 mb-3 shadow-sm" style="background-color: white; padding: 20px;">
                     <strong>Class ID</strong>
                     <hr>
-                    {{$class->classID}}
+                    {{$class['classID']}}
                 </div>
             </div>
             <div class="col-xl-9">
                 <div class="container  mt-3 mb-3 shadow-sm" style="background-color: white; padding: 20px;">
-                    <strong>{{$class->className}}</strong>
+                    <strong>{{$class['className']}}</strong>
                     <a href="{{url('admin')}}" class="btn btn-info btn-sm" style="float: right;">Back</a>
                     <hr>
                     Description : <br>
-                    {{$class->description}}
+                    {{$class['description']}}
                     <hr>
-                    Participants
+                    <strong>Participants</strong>
+                    <hr>
                     <div id="participants">
-                        
+                        <table class="table" id="myTable">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Username</th>
+                                    <th>E-mail</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($user as $u)
+                                    <tr>
+                                        <td>{{$u['userName']}}</td>
+                                        <td>{{$u['userEmail']}}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

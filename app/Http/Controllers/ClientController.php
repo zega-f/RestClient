@@ -67,9 +67,11 @@ class ClientController extends Controller
 			]);
 
 		// echo $res2->getStatusCode();
-		$allClass = json_decode($res2->getBody());
+		$allInfo = json_decode($res2->getBody(),true);
+		$allClass = $allInfo['class'];
+		$user = $allInfo['user'];
 		// echo Session::get('userToken');
-		// var_dump($allClass);
-		return view('classDetail',compact('allClass'));
+		// var_dump($class);
+		return view('classDetail',compact('allClass','user'));
     }
 }
